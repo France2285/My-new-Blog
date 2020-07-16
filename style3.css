@@ -1,0 +1,215 @@
+/* Style for the body and the layout */
+html{
+    background-color: rgb(255, 245, 233);
+}
+#container{
+    font-size: 1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap:10px;
+    grid-template-areas: 
+    "hd hd hd hd"
+    "nb nb nb nb"
+    "pc pc pc am"
+    "ft ft ft ft";
+}
+/* For each box */
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* For the Head */
+#header{
+    grid-area: hd;
+    font-size: 1.5em;
+    font-family: 'IM Fell English', serif;
+}
+h1{
+    margin: 20px;
+}
+/* Navigation bar */
+#navBar{
+    grid-area: nb;
+    border-radius:  10px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00A09A;
+    font-family: 'IM Fell English', serif;
+}
+li {
+    float: left;
+    font-size: 1.5em;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#right{
+      float: right;
+}
+/* Concerning the posts box*/
+#postContainer{
+    grid-area:pc;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding:20px;
+    grid-template-areas:
+    "tl tl tl"
+}
+/* Title */
+#titlePost{
+    grid-area: tl;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'IM Fell English', serif;
+}
+.text{
+    text-align: justify;
+    color:rgb(114, 21, 21);
+}
+/* About me */
+#aboutMe{
+    font-family: 'IM Fell English', serif;
+    background-color: #51c4c0;
+    grid-area: am;
+    display: block ;
+    margin:auto;
+    margin-right: 20px;
+    text-align:center;
+    height:65%;
+    border-radius:  10px;
+}
+#me{
+    width:200px;
+    height: 200px;
+
+}
+/* Footer */
+#footer{
+    font-family: 'IM Fell English', serif;
+    grid-area: ft;
+    padding: 20px;
+    text-align: center;
+    background-color:#00A09A;
+    color: white;
+    font-size: 1em;
+}
+/* About all images */
+img {
+    width:250px;
+    height: 250px;
+    padding:10px;
+    justify-content: center;
+    position: relative;
+}
+
+.post{
+    background-color:#FFD3D2;
+    display: block ;
+    margin:5px;
+    padding:20px;
+    text-align:center;
+    border-radius:  10px;
+}
+
+
+.button {
+    background-color: #103D50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+@media screen and (max-width: 1280px) {
+    #container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /*grid-template-rows:minmax(20px, auto);*/
+        gap:20px;
+        grid-template-areas: 
+        "hd hd hd"
+        "nb nb nb "
+        "pc pc pc"
+        "am am am"
+        "ft ft ft";
+    }
+    #aboutMe{
+        height: auto;
+    }
+}
+  /* Responsive layout - when the screen is less than 1000px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 1000px) {
+    #container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        gap:20px;
+        grid-template-areas: 
+        "hd hd"
+        "nb nb"
+        "pc pc"
+        "pc pc"
+        "am am"
+        "ft ft";
+    }
+    #postContainer{
+        grid-area:pc;
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows:minmax(20px, auto) ;
+        gap: 20px;
+        grid-template-areas:
+         "tl tl"
+         "pc pc"
+         "pc pc";
+  }
+    #aboutMe{
+        height: auto;
+}
+  }
+  
+/* Responsive layout - when the screen is less than 630px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 630px) {
+    #container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap:20px;
+        grid-template-areas: 
+        "hd"
+        "nb"
+        "pc"
+        "am"
+        "ft";
+    }
+    #postContainer{
+        grid-area:pc;
+        flex-wrap: wrap;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 20px;
+}
+    #aboutMe{
+        height: auto;
+}
+}  
